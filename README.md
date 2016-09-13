@@ -1,9 +1,14 @@
 # React props
 
+## Overview
+
+We'll cover props and show how they help us make our components more dynamic and reusable. 
+
 ## Objectives
-1. Explain what props are and how to use them in our components
-2. Explain how to declare default prop values in ES2015 classes as well as `React.createClass()`
-3. Practice rendering a component with props and default props
+1. Explain how props make our components more dynamic and reusable
+2. Pass props to a component by adding them as attributes when you render them
+2. Declare default prop values in ES2015 classes as well as `React.createClass()`
+3. Render a component with props and default props
 
 
 ## What are props?
