@@ -95,7 +95,8 @@ This would also work for the `title` and `poster` props, but you get the idea.
 
 ## Accessing props
 Now that we've passed in our props, let's change our hardcoded data in the `render()` method to make use of the props we
-pass in instead:
+pass in instead. Props in a component can be accessed through `this.props` in the `render()` method (and most other
+component methods):
 
 ```js
 class MovieCard extends React.Component {
