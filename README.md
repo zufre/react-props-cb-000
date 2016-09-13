@@ -111,7 +111,7 @@ class MovieCard extends React.Component {
 }
 ```
 
-And that's all there is to it! For demonstrative purposes, let's render a movie card for Jurassic World:
+And that's all there is to it! To illustrate, let's render a movie card for Jurassic World:
 
 ```js
 const jurassicWorldGenres = ['Action', 'Adventure', 'Science Fiction', 'Thriller'];
