@@ -12,10 +12,7 @@ We'll cover props and show how they help us make our components more dynamic and
 
 
 ## What are props?
-Props allow us to pass values into our components. These values can be anything: a string, an array, functions, and so
-on. They give us the opportunity to make our components more dynamic, and a **lot more** reusable. For example, say we
-have a `<MovieCard />` component. A movie has a title, a poster image, and many other attributes (or **prop**erties!).
-Our component would kind of look like this, with _hardcoded_ data:
+Props allow us to pass values into our components. These values can be anything: a string, an array, functions, and so on. They give us the opportunity to make our components more dynamic, and a **lot more** reusable. For example, say we have a `<MovieCard />` component. A movie has a title, a poster image, and many other attributes (or **prop**erties!). Our component would kind of look like this, with _hardcoded_ data:
 
 ```js
 import React from 'react';
@@ -40,8 +37,7 @@ ReactDOM.render(
 ```
 
 ## Passing in props
-Mad Max: Fury Road is a ridiculously good movie, but what if we want to render a movie card for another movie? Do we
-just write another component? No, that would be silly! Instead, we can pass in props to our component to make it dynamic.
+Mad Max: Fury Road is a ridiculously good movie, but what if we want to render a movie card for another movie? Do we just write another component? No, that would be silly! Instead, we can pass in props to our component to make it dynamic.
 
 To pass props to a component, you add them as attributes when you render them:
 
@@ -49,16 +45,13 @@ To pass props to a component, you add them as attributes when you render them:
 <MyComponent propName={propValue} />
 ```
 
-The value of a prop is passed in through curly braces, like above. As we saw before, this value can be anything: a
-variable, inline values, functions, ... If your value is a hardcoded string, you can pass it in through double quotes
-instead:
+The value of a prop is passed in through curly braces, like above. As we saw before, this value can be anything: a variable, inline values, functions, ... If your value is a hardcoded string, you can pass it in through double quotes instead:
 
 ```js
 <MyComponent propName="propValue" />
 ```
 
-Armed with that knowledge, let's update our `ReactDOM.render()` call to include the data for the Mad Max movie in our
-props:
+Armed with that knowledge, let's update our `ReactDOM.render()` call to include the data for the Mad Max movie in our props:
 
 ```js
 ReactDOM.render(
@@ -67,8 +60,7 @@ ReactDOM.render(
 );
 ```
 
-There's a small code style issue at play here: our line with the `MovieCard` component is super long, resulting in code
-that is pretty hard to read. Thankfully, we can add line breaks to make things more readable again:
+There's a small code style issue at play here: our line with the `MovieCard` component is super long, resulting in code that is pretty hard to read. Thankfully, we can add line breaks to make things more readable again:
 
 ```js
 ReactDOM.render(
@@ -99,9 +91,7 @@ ReactDOM.render(
 This would also work for the `title` and `poster` props, but you get the idea.
 
 ## Accessing props
-Now that we've passed in our props, let's change our hardcoded data in the `render()` method to make use of the props we
-pass in instead. Props in a component can be accessed through `this.props` in the `render()` method (and most other
-component methods):
+Now that we've passed in our props, let's change our hardcoded data in the `render()` method to make use of the props we pass in instead. Props in a component can be accessed through `this.props` in the `render()` method (and most other component methods):
 
 ```js
 class MovieCard extends React.Component {
@@ -135,10 +125,7 @@ ReactDOM.render(
 Woohoo! We've created our first dynamic component. Good job!
 
 ## Default values for props
-What if we didn't have a poster image for a movie? Ideally, we'd have a default poster image for that instead. Instead
-of passing in that default poster image in case we don't have one, we can tell update our `MovieCard` component to use
-a default value instead, if the `poster` prop was not provided. To do that, we add the `propTypes` property to our
-`MovieCard` class:
+What if we didn't have a poster image for a movie? Ideally, we'd have a default poster image for that instead. Instead of passing in that default poster image in case we don't have one, we can tell update our `MovieCard` component to use a default value instead, if the `poster` prop was not provided. To do that, we add the `propTypes` property to our `MovieCard` class:
 
 ```js
 class MovieCard extends React.Component {
@@ -152,12 +139,9 @@ MovieCard.defaultProps = {
 };
 ```
 
-Now, whenever we omit the `poster` prop, or if it's undefined, the `MovieCard` component will use this default prop
-instead. That means we don't have to worry about not passing in a poster all the time — the component will take care of
-this for us!
+Now, whenever we omit the `poster` prop, or if it's undefined, the `MovieCard` component will use this default prop instead. That means we don't have to worry about not passing in a poster all the time — the component will take care of this for us!
 
-If we were still writing our components using `React.createClass()` instead of the ES2015 way, this is how we would add
-default props to that component:
+If we were still writing our components using `React.createClass()` instead of the ES2015 way, this is how we would add default props to that component:
 
 ```js
 const MovieCard = React.createClass({
@@ -172,9 +156,7 @@ const MovieCard = React.createClass({
 })
 ```
 
-Note that the order of the method definitions does _not_ matter: `getDefaultProps()` could be added below the `render()`
-method too. Generally, though, it's best to keep your `render()` method last when declaring methods, and keeping the
-code for the initial state and props for the component all the way up top. Up to you, though!
+Note that the order of the method definitions does _not_ matter: `getDefaultProps()` could be added below the `render()` method too. Generally, though, it's best to keep your `render()` method last when declaring methods, and keeping the code for the initial state and props for the component all the way up top. Up to you, though!
 
 ## Resources
 - [React Default Prop Values](https://facebook.github.io/react/docs/reusable-components.html#default-prop-values)
