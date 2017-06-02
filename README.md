@@ -125,7 +125,7 @@ ReactDOM.render(
 Woohoo! We've created our first dynamic component. Good job!
 
 ## Default values for props
-What if we didn't have a poster image for a movie? Ideally, we'd have a default poster image for that instead. Instead of passing in that default poster image in case we don't have one, we can tell update our `MovieCard` component to use a default value instead, if the `poster` prop was not provided. To do that, we add the `propTypes` property to our `MovieCard` class:
+What if we didn't have a poster image for a movie? Ideally, we'd have a default poster image for that instead. Instead of passing in that default poster image in case we don't have one, we can tell update our `MovieCard` component to use a default value instead, if the `poster` prop was not provided. To do that, we add the `defaultProps` property to our `MovieCard` class:
 
 ```js
 class MovieCard extends React.Component {
@@ -161,3 +161,5 @@ Note that the order of the method definitions does _not_ matter: `getDefaultProp
 ## Resources
 - [React Default Prop Values](https://facebook.github.io/react/docs/reusable-components.html#default-prop-values)
 - [Babel: transform-class-properties](http://babeljs.io/docs/plugins/transform-class-properties/)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-props'>Props</a> on Learn.co and start learning to code for free.</p>
