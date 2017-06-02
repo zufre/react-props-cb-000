@@ -7,7 +7,7 @@ We'll cover props and show how they help us make our components more dynamic and
 ## Objectives
 1. Explain how props make our components more dynamic and reusable
 2. Pass props to a component by adding them as attributes when you render them
-2. Declare default prop values in ES2015 classes as well as `React.createClass()`
+2. Declare default prop values in React
 3. Render a component with props and default props
 
 
@@ -32,7 +32,7 @@ class MovieCard extends React.Component {
 
 ReactDOM.render(
   <MovieCard />,
-  document.getElementById('main')
+  document.getElementById('root')
 );
 ```
 
@@ -56,7 +56,7 @@ Armed with that knowledge, let's update our `ReactDOM.render()` call to include 
 ```js
 ReactDOM.render(
   <MovieCard title="Mad Max: Fury Road" poster="http://image.tmdb.org/t/p/w342/kqjL17yufvn9OVLyXYpvtyrFfak.jpg" genres={['Action', 'Adventure', 'Science Fiction', 'Thriller']} />,
-  document.getElementById('main')
+  document.getElementById('root')
 );
 ```
 
@@ -64,12 +64,12 @@ There's a small code style issue at play here: our line with the `MovieCard` com
 
 ```js
 ReactDOM.render(
-  <MovieCard
+  <MovieCard 
     title="Mad Max: Fury Road"
     poster="http://image.tmdb.org/t/p/w342/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"
-    genres={['Action', 'Adventure', 'Science Fiction', 'Thriller']} 
+    genres={['Action', 'Adventure', 'Science Fiction', 'Thriller']}
   />,
-  document.getElementById('main')
+  document.getElementById('root')
 );
 ```
 
@@ -79,12 +79,12 @@ Notice how we passed in the genres as an inline array? We could also pass in var
 const madMaxGenres = ['Action', 'Adventure', 'Science Fiction', 'Thriller'];
 
 ReactDOM.render(
-  <MovieCard
+  <MovieCard 
     title="Mad Max: Fury Road"
     poster="http://image.tmdb.org/t/p/w342/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"
-    genres={madMaxGenres} 
+    genres={madMaxGenres}
   />,
-  document.getElementById('main')
+  document.getElementById('root')
 );
 ```
 
@@ -98,7 +98,10 @@ class MovieCard extends React.Component {
   render() {
     return (
       <div className="movie-card">
-        <img src={this.props.poster} alt={this.props.title} />
+        <img  
+          src={this.props.poster} 
+          alt={this.props.title} 
+        />
         <h2>{this.props.title}</h2>
         <small>Genres: {this.props.genres.join(', ')}</small>
       </div>
@@ -118,7 +121,7 @@ ReactDOM.render(
     poster="http://image.tmdb.org/t/p/w342/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"
     genres={jurassicWorldGenres} 
   />,
-  document.getElementById('main')
+  document.getElementById('root')
 );
 ```
 
@@ -137,26 +140,19 @@ class MovieCard extends React.Component {
 MovieCard.defaultProps = {
   poster: 'http://i.imgur.com/bJw8ndW.png'
 };
+
+const jurassicWorldGenres = ['Action', 'Adventure', 'Science Fiction', 'Thriller'];
+
+ReactDOM.render(
+  <MovieCard
+    title="Jurassic World"
+    genres={jurassicWorldGenres} 
+  />,
+  document.getElementById('root')
+);
 ```
 
 Now, whenever we omit the `poster` prop, or if it's undefined, the `MovieCard` component will use this default prop instead. That means we don't have to worry about not passing in a poster all the time — the component will take care of this for us!
-
-If we were still writing our components using `React.createClass()` instead of the ES2015 way, this is how we would add default props to that component:
-
-```js
-const MovieCard = React.createClass({
-  getDefaultProps() {
-    return {
-      poster: 'http://i.imgur.com/bJw8ndW.png'
-    };
-  },
-  render() {
-    // ... The render stuff from before
-  }
-})
-```
-
-Note that the order of the method definitions does _not_ matter: `getDefaultProps()` could be added below the `render()` method too. Generally, though, it's best to keep your `render()` method last when declaring methods, and keeping the code for the initial state and props for the component all the way up top. Up to you, though!
 
 ## Resources
 - [React Default Prop Values](https://facebook.github.io/react/docs/reusable-components.html#default-prop-values)
