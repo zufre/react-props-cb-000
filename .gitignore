@@ -41,3 +41,9 @@ jspm_packages
 
 # Learn-specific .results.json
 .results.json
+
+# ignore Yarn lock 
+yarn.lock 
+
+# ignore DS_Store 
+.DS_Store
