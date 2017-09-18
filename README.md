@@ -128,7 +128,7 @@ ReactDOM.render(
 Woohoo! We've created our first dynamic component. Good job!
 
 ## Default values for props
-What if we didn't have a poster image for a movie? Ideally, we'd have a default poster image for that instead. Instead of passing in that default poster image in case we don't have one, we can tell update our `MovieCard` component to use a default value instead, if the `poster` prop was not provided. To do that, we add the `defaultProps` property to our `MovieCard` class:
+What if we didn't have a poster image for a movie? Ideally, we'd have a default poster image for that instead. Instead of passing in that default poster image in case we don't have one, we can tell our `MovieCard` component to use a default value instead, if the `poster` prop was not provided. To do that, we add the `defaultProps` property to our `MovieCard` class:
 
 ```jsx
 class MovieCard extends React.Component {
